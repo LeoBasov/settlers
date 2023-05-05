@@ -52,3 +52,6 @@ func set_up_rand_tiles(dict: Dictionary) -> Array[int]:
 
 func change_player(current_palyer_: int) -> void:
 	current_player = current_palyer_
+
+	for building in $Buildings.get_children():
+		building.change_player(current_player)

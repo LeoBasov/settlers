@@ -11,7 +11,10 @@ script = ExtResource("1_2bpj3")
 [node name="Player1" parent="Players" instance=ExtResource("2_oy70d")]
 
 [node name="Player2" parent="Players" instance=ExtResource("2_oy70d")]
+color = Color(0, 0.309804, 0.964706, 1)
 
 [node name="Player3" parent="Players" instance=ExtResource("2_oy70d")]
+color = Color(0.196078, 0.580392, 0.266667, 1)
 
 [node name="Player4" parent="Players" instance=ExtResource("2_oy70d")]
+color = Color(0.776471, 0.682353, 0.156863, 1)
