@@ -1,5 +1,7 @@
 extends Node2D
 
+@export_range(1, 4, 1)
+var max_player: int = 4
 var player_id: int = 0
 var round_conter: int = 0
 
@@ -20,8 +22,17 @@ func reset() -> void:
 	player_id = 0
 	round_conter = 0
 
-func change_player(player_id: int) -> void:
+func next() -> void:
+	if player_id < (max_player - 1):
+		player_id += 1
+		_change_player(player_id)
+	else:
+		player_id = 0
+		_change_player(player_id)
+		_end_turn()
+
+func _change_player(player_id: int) -> void:
 	pass
 
-func end_turn() -> void:
+func _end_turn() -> void:
 	pass
