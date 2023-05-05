@@ -5,12 +5,24 @@ var Building: = preload("res://src/board/building.tscn")
 var recources_dict: = Resources.new()
 var current_player: int = 0
 
+signal modify_state(player_id: int, recourse: String, value: int)
+
 func _ready() -> void:
 	$HexGrid.build(2)
 	set_up_buildings()
 	randomize_board()
+	
+func get_score(dice: int) -> void:
+	for building in $Buildings.get_children():
+		if building.build:
+			for tile in building.tiles:
+				if tile.coin_nr == dice:
+					modify_state.emit(building.owning_palyer, tile.get_type(), 1)
 
 func randomize_board() -> void:
+	for child in $Tiles.get_children():
+		child.queue_free()
+	
 	var tiles: Array[int] = set_up_rand_tiles({"wood": 4, "wool": 4, "hey": 4, "clay": 3, "stone": 3})
 	var coins: Array[int] = [2, 3, 3, 4, 4, 5, 5, 6, 6, 8, 8, 9, 9, 10, 10, 11, 11, 12]
 	var j: int  = 0

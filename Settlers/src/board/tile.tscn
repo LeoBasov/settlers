@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://src/board/tile.gd" id="1_x6t1j"]
 [ext_resource type="Texture2D" uid="uid://cjelgsdehifns" path="res://assets/Coins.png" id="2_de8id"]
 
-[node name="Tile" type="Node2D"]
+[node name="Tile" type="Node2D" groups=["tiles"]]
 scale = Vector2(3, 3)
 script = ExtResource("1_x6t1j")
 

@@ -6,6 +6,8 @@ var player_id: int = 0
 var round_conter: int = 0
 
 func _ready() -> void:
+	$UI.game_state = $GameState
+	
 	$Board.position = get_viewport().get_visible_rect().size * 0.5
 	$GameCamera2D.position = get_viewport().get_visible_rect().size * 0.5
 	reset()
@@ -32,6 +34,8 @@ func _end_turn() -> void:
 	randomize()
 	var dice: int = randi_range(1, 6) + randi_range(1, 6)
 	$UI.set_dice(dice)
+	$Board.get_score(dice)
+	$UI.update()
 
 func _on_ui_next() -> void:
 	if player_id < (max_player - 1):

@@ -5,17 +5,24 @@ var players: = [[], [], [], []]
 var current_player: int = 0
 var may_player_nr: int = 0
 
+var game_state
+
 signal next
 
 func set_dice(value: int) -> void:
 	$Bottons/DiceValue.text = str(value)
+	
+func update():
+	for i in range(len(players)):
+		for r in range(len(players[i])):
+			players[i][r].text = str(game_state.get_child(0).get_child(i).resources[r])
 
 func _ready() -> void:
 	for i in range($Separator/PlayerBanner.get_child_count()):
 		players[i].resize(resources_dict.size())
 		
 		var p:int = 0
-		for r in range(2, resources_dict.size(), 2):
+		for r in range(2, $Separator/PlayerBanner.get_child(i).get_children().size(), 2):
 			players[i][p] = $Separator/PlayerBanner.get_child(i).get_child(r)
 			p += 1
 	
