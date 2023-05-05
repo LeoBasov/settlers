@@ -8,3 +8,6 @@ func _input(event):
 		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
 			#fov -= 1 #Camera
 			zoom -= Vector2(1, 1)*0.1 #Camera2D
+			
+		zoom.x = clamp(zoom.x, 0.5, 3)
+		zoom.y = clamp(zoom.y, 0.5, 3)
