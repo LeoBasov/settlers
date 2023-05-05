@@ -4,12 +4,12 @@ var resources_dict: = Resources.new()
 var players: = [[], [], [], []]
 
 func _ready() -> void:
-	for i in range($VBoxContainer.get_child_count()):
+	for i in range($PlayerBanner.get_child_count()):
 		players[i].resize(resources_dict.size())
 		
 		var p:int = 0
 		for r in range(2, resources_dict.size(), 2):
-			players[i][p] = $VBoxContainer.get_child(i).get_child(r)
+			players[i][p] = $PlayerBanner.get_child(i).get_child(r)
 			p += 1
 	
 	reset()
