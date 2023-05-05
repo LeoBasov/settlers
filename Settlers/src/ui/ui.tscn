@@ -204,6 +204,10 @@ text = "Stone:"
 layout_mode = 2
 text = "0"
 
+[node name="MarginContainer" type="MarginContainer" parent="Separator"]
+custom_minimum_size = Vector2(450, 0)
+layout_mode = 2
+
 [node name="CurrentPlayer" type="Label" parent="Separator"]
 layout_mode = 2
 size_flags_horizontal = 8

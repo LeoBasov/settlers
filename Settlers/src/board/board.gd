@@ -1,11 +1,13 @@
 extends Node2D
 
 var Tile: = preload("res://src/board/tile.tscn")
+var Building: = preload("res://src/board/building.tscn")
 var recources_dict: = Resources.new()
 var current_player: int = 0
 
 func _ready() -> void:
 	$HexGrid.build(2)
+	set_up_buildings()
 	randomize_board()
 
 func randomize_board() -> void:
@@ -25,6 +27,15 @@ func randomize_board() -> void:
 			tile.set_coin(coins[j])
 			j += 1
 		$Tiles.add_child(tile)
+
+func set_up_buildings() -> void:
+	for child in $Buildings.get_children():
+		child.queue_free()
+		
+	for vertex in $HexGrid.get_vertices():
+		var building: = Building.instantiate()
+		building.position = vertex.position
+		$Buildings.add_child(building)
 
 func set_up_rand_tiles(dict: Dictionary) -> Array[int]:
 	var tiles: Array[int] = []
