@@ -235,3 +235,5 @@ size_flags_horizontal = 8
 layout_mode = 2
 size_flags_horizontal = 8
 text = "Nex Player"
+
+[connection signal="pressed" from="Buttuns/Button" to="." method="_on_button_pressed"]

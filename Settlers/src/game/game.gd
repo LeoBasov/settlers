@@ -22,7 +22,13 @@ func reset() -> void:
 	player_id = 0
 	round_conter = 0
 
-func next() -> void:
+func _change_player(player_id: int) -> void:
+	pass
+
+func _end_turn() -> void:
+	pass
+
+func _on_ui_next() -> void:
 	if player_id < (max_player - 1):
 		player_id += 1
 		_change_player(player_id)
@@ -30,9 +36,3 @@ func next() -> void:
 		player_id = 0
 		_change_player(player_id)
 		_end_turn()
-
-func _change_player(player_id: int) -> void:
-	pass
-
-func _end_turn() -> void:
-	pass
