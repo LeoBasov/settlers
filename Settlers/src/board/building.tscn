@@ -12,10 +12,11 @@ script = ExtResource("1_s4jl6")
 scale = Vector2(3, 3)
 texture = ExtResource("1_q0i06")
 
-[node name="BuildingArea2D" type="Area2D" parent="BuildingSprite"]
+[node name="BuildingArea2D" type="Area2D" parent="."]
+scale = Vector2(3, 3)
 
-[node name="BuildingCollisionShape2D" type="CollisionShape2D" parent="BuildingSprite/BuildingArea2D"]
+[node name="BuildingCollisionShape2D" type="CollisionShape2D" parent="BuildingArea2D"]
 shape = SubResource("CircleShape2D_2rkpb")
 
-[connection signal="mouse_entered" from="BuildingSprite/BuildingArea2D" to="." method="_on_building_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="BuildingSprite/BuildingArea2D" to="." method="_on_building_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="BuildingArea2D" to="." method="_on_building_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="BuildingArea2D" to="." method="_on_building_area_2d_mouse_exited"]

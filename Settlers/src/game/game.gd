@@ -22,9 +22,9 @@ func reset() -> void:
 	player_id = 0
 	round_conter = 0
 	
-	_change_player(player_id)
+	_change_player()
 
-func _change_player(player_id: int) -> void:
+func _change_player() -> void:
 	$UI.change_player(player_id, max_player)
 	$Board.change_player(player_id)
 
@@ -34,8 +34,8 @@ func _end_turn() -> void:
 func _on_ui_next() -> void:
 	if player_id < (max_player - 1):
 		player_id += 1
-		_change_player(player_id)
+		_change_player()
 	else:
 		player_id = 0
-		_change_player(player_id)
+		_change_player()
 		_end_turn()
