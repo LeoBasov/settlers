@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene load_steps=3 format=3 uid="uid://vkw6djrc2mdg"]
 
 [ext_resource type="Script" path="res://src/board/board.gd" id="1_ddnab"]
 [ext_resource type="Script" path="res://src/grid/hex_grid.gd" id="1_oak8q"]
@@ -7,4 +7,7 @@
 script = ExtResource("1_ddnab")
 
 [node name="HexGrid" type="Node2D" parent="."]
+visible = false
 script = ExtResource("1_oak8q")
+
+[node name="Tiles" type="Node2D" parent="."]
