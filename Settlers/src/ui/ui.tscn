@@ -5,195 +5,252 @@
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_qb5vd")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="Separator" type="HBoxContainer" parent="."]
 anchors_preset = 10
 anchor_right = 1.0
+offset_bottom = 116.0
 grow_horizontal = 2
+size_flags_horizontal = 0
 
-[node name="Player1HBox" type="HBoxContainer" parent="VBoxContainer"]
+[node name="PlayerBanner" type="VBoxContainer" parent="Separator"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Player1HBox" type="HBoxContainer" parent="Separator/PlayerBanner"]
 layout_mode = 2
 
-[node name="PlayerName" type="Label" parent="VBoxContainer/Player1HBox"]
+[node name="PlayerName" type="Label" parent="Separator/PlayerBanner/Player1HBox"]
 layout_mode = 2
 text = "Player 1"
 
-[node name="WoodName" type="Label" parent="VBoxContainer/Player1HBox"]
+[node name="WoodName" type="Label" parent="Separator/PlayerBanner/Player1HBox"]
 layout_mode = 2
 text = "Wood:"
 
-[node name="WoodValue" type="Label" parent="VBoxContainer/Player1HBox"]
+[node name="WoodValue" type="Label" parent="Separator/PlayerBanner/Player1HBox"]
 layout_mode = 2
 text = "0"
 
-[node name="WoolName" type="Label" parent="VBoxContainer/Player1HBox"]
+[node name="WoolName" type="Label" parent="Separator/PlayerBanner/Player1HBox"]
 layout_mode = 2
 text = "Wool:"
 
-[node name="WoolValue" type="Label" parent="VBoxContainer/Player1HBox"]
+[node name="WoolValue" type="Label" parent="Separator/PlayerBanner/Player1HBox"]
 layout_mode = 2
 text = "0"
 
-[node name="HeyName" type="Label" parent="VBoxContainer/Player1HBox"]
+[node name="HeyName" type="Label" parent="Separator/PlayerBanner/Player1HBox"]
 layout_mode = 2
 text = "Hey:"
 
-[node name="HeyValue" type="Label" parent="VBoxContainer/Player1HBox"]
+[node name="HeyValue" type="Label" parent="Separator/PlayerBanner/Player1HBox"]
 layout_mode = 2
 text = "0"
 
-[node name="ClayName" type="Label" parent="VBoxContainer/Player1HBox"]
+[node name="ClayName" type="Label" parent="Separator/PlayerBanner/Player1HBox"]
 layout_mode = 2
 text = "Clay:"
 
-[node name="ClayValue" type="Label" parent="VBoxContainer/Player1HBox"]
+[node name="ClayValue" type="Label" parent="Separator/PlayerBanner/Player1HBox"]
 layout_mode = 2
 text = "0"
 
-[node name="StoneName" type="Label" parent="VBoxContainer/Player1HBox"]
+[node name="StoneName" type="Label" parent="Separator/PlayerBanner/Player1HBox"]
 layout_mode = 2
 text = "Stone:"
 
-[node name="StoneValue" type="Label" parent="VBoxContainer/Player1HBox"]
+[node name="StoneValue" type="Label" parent="Separator/PlayerBanner/Player1HBox"]
 layout_mode = 2
 text = "0"
 
-[node name="Player2HBox" type="HBoxContainer" parent="VBoxContainer"]
+[node name="Player2HBox" type="HBoxContainer" parent="Separator/PlayerBanner"]
 layout_mode = 2
 
-[node name="PlayerName" type="Label" parent="VBoxContainer/Player2HBox"]
+[node name="PlayerName" type="Label" parent="Separator/PlayerBanner/Player2HBox"]
 layout_mode = 2
 text = "Player 2"
 
-[node name="WoodName" type="Label" parent="VBoxContainer/Player2HBox"]
+[node name="WoodName" type="Label" parent="Separator/PlayerBanner/Player2HBox"]
 layout_mode = 2
 text = "Wood:"
 
-[node name="WoodValue" type="Label" parent="VBoxContainer/Player2HBox"]
+[node name="WoodValue" type="Label" parent="Separator/PlayerBanner/Player2HBox"]
 layout_mode = 2
 text = "0"
 
-[node name="WoolName" type="Label" parent="VBoxContainer/Player2HBox"]
+[node name="WoolName" type="Label" parent="Separator/PlayerBanner/Player2HBox"]
 layout_mode = 2
 text = "Wool:"
 
-[node name="WoolValue" type="Label" parent="VBoxContainer/Player2HBox"]
+[node name="WoolValue" type="Label" parent="Separator/PlayerBanner/Player2HBox"]
 layout_mode = 2
 text = "0"
 
-[node name="HeyName" type="Label" parent="VBoxContainer/Player2HBox"]
+[node name="HeyName" type="Label" parent="Separator/PlayerBanner/Player2HBox"]
 layout_mode = 2
 text = "Hey:"
 
-[node name="HeyValue" type="Label" parent="VBoxContainer/Player2HBox"]
+[node name="HeyValue" type="Label" parent="Separator/PlayerBanner/Player2HBox"]
 layout_mode = 2
 text = "0"
 
-[node name="ClayName" type="Label" parent="VBoxContainer/Player2HBox"]
+[node name="ClayName" type="Label" parent="Separator/PlayerBanner/Player2HBox"]
 layout_mode = 2
 text = "Clay:"
 
-[node name="ClayValue" type="Label" parent="VBoxContainer/Player2HBox"]
+[node name="ClayValue" type="Label" parent="Separator/PlayerBanner/Player2HBox"]
 layout_mode = 2
 text = "0"
 
-[node name="StoneName" type="Label" parent="VBoxContainer/Player2HBox"]
+[node name="StoneName" type="Label" parent="Separator/PlayerBanner/Player2HBox"]
 layout_mode = 2
 text = "Stone:"
 
-[node name="StoneValue" type="Label" parent="VBoxContainer/Player2HBox"]
+[node name="StoneValue" type="Label" parent="Separator/PlayerBanner/Player2HBox"]
 layout_mode = 2
 text = "0"
 
-[node name="Player3HBox" type="HBoxContainer" parent="VBoxContainer"]
+[node name="Player3HBox" type="HBoxContainer" parent="Separator/PlayerBanner"]
 layout_mode = 2
 
-[node name="PlayerName" type="Label" parent="VBoxContainer/Player3HBox"]
+[node name="PlayerName" type="Label" parent="Separator/PlayerBanner/Player3HBox"]
 layout_mode = 2
 text = "Player 3"
 
-[node name="WoodName" type="Label" parent="VBoxContainer/Player3HBox"]
+[node name="WoodName" type="Label" parent="Separator/PlayerBanner/Player3HBox"]
 layout_mode = 2
 text = "Wood:"
 
-[node name="WoodValue" type="Label" parent="VBoxContainer/Player3HBox"]
+[node name="WoodValue" type="Label" parent="Separator/PlayerBanner/Player3HBox"]
 layout_mode = 2
 text = "0"
 
-[node name="WoolName" type="Label" parent="VBoxContainer/Player3HBox"]
+[node name="WoolName" type="Label" parent="Separator/PlayerBanner/Player3HBox"]
 layout_mode = 2
 text = "Wool:"
 
-[node name="WoolValue" type="Label" parent="VBoxContainer/Player3HBox"]
+[node name="WoolValue" type="Label" parent="Separator/PlayerBanner/Player3HBox"]
 layout_mode = 2
 text = "0"
 
-[node name="HeyName" type="Label" parent="VBoxContainer/Player3HBox"]
+[node name="HeyName" type="Label" parent="Separator/PlayerBanner/Player3HBox"]
 layout_mode = 2
 text = "Hey:"
 
-[node name="HeyValue" type="Label" parent="VBoxContainer/Player3HBox"]
+[node name="HeyValue" type="Label" parent="Separator/PlayerBanner/Player3HBox"]
 layout_mode = 2
 text = "0"
 
-[node name="ClayName" type="Label" parent="VBoxContainer/Player3HBox"]
+[node name="ClayName" type="Label" parent="Separator/PlayerBanner/Player3HBox"]
 layout_mode = 2
 text = "Clay:"
 
-[node name="ClayValue" type="Label" parent="VBoxContainer/Player3HBox"]
+[node name="ClayValue" type="Label" parent="Separator/PlayerBanner/Player3HBox"]
 layout_mode = 2
 text = "0"
 
-[node name="StoneName" type="Label" parent="VBoxContainer/Player3HBox"]
+[node name="StoneName" type="Label" parent="Separator/PlayerBanner/Player3HBox"]
 layout_mode = 2
 text = "Stone:"
 
-[node name="StoneValue" type="Label" parent="VBoxContainer/Player3HBox"]
+[node name="StoneValue" type="Label" parent="Separator/PlayerBanner/Player3HBox"]
 layout_mode = 2
 text = "0"
 
-[node name="Player4HBox" type="HBoxContainer" parent="VBoxContainer"]
+[node name="Player4HBox" type="HBoxContainer" parent="Separator/PlayerBanner"]
 layout_mode = 2
 
-[node name="PlayerName" type="Label" parent="VBoxContainer/Player4HBox"]
+[node name="PlayerName" type="Label" parent="Separator/PlayerBanner/Player4HBox"]
 layout_mode = 2
 text = "Player 4"
 
-[node name="WoodName" type="Label" parent="VBoxContainer/Player4HBox"]
+[node name="WoodName" type="Label" parent="Separator/PlayerBanner/Player4HBox"]
 layout_mode = 2
 text = "Wood:"
 
-[node name="WoodValue" type="Label" parent="VBoxContainer/Player4HBox"]
+[node name="WoodValue" type="Label" parent="Separator/PlayerBanner/Player4HBox"]
 layout_mode = 2
 text = "0"
 
-[node name="WoolName" type="Label" parent="VBoxContainer/Player4HBox"]
+[node name="WoolName" type="Label" parent="Separator/PlayerBanner/Player4HBox"]
 layout_mode = 2
 text = "Wool:"
 
-[node name="WoolValue" type="Label" parent="VBoxContainer/Player4HBox"]
+[node name="WoolValue" type="Label" parent="Separator/PlayerBanner/Player4HBox"]
 layout_mode = 2
 text = "0"
 
-[node name="HeyName" type="Label" parent="VBoxContainer/Player4HBox"]
+[node name="HeyName" type="Label" parent="Separator/PlayerBanner/Player4HBox"]
 layout_mode = 2
 text = "Hey:"
 
-[node name="HeyValue" type="Label" parent="VBoxContainer/Player4HBox"]
+[node name="HeyValue" type="Label" parent="Separator/PlayerBanner/Player4HBox"]
 layout_mode = 2
 text = "0"
 
-[node name="ClayName" type="Label" parent="VBoxContainer/Player4HBox"]
+[node name="ClayName" type="Label" parent="Separator/PlayerBanner/Player4HBox"]
 layout_mode = 2
 text = "Clay:"
 
-[node name="ClayValue" type="Label" parent="VBoxContainer/Player4HBox"]
+[node name="ClayValue" type="Label" parent="Separator/PlayerBanner/Player4HBox"]
 layout_mode = 2
 text = "0"
 
-[node name="StoneName" type="Label" parent="VBoxContainer/Player4HBox"]
+[node name="StoneName" type="Label" parent="Separator/PlayerBanner/Player4HBox"]
 layout_mode = 2
 text = "Stone:"
 
-[node name="StoneValue" type="Label" parent="VBoxContainer/Player4HBox"]
+[node name="StoneValue" type="Label" parent="Separator/PlayerBanner/Player4HBox"]
 layout_mode = 2
 text = "0"
+
+[node name="MarginContainer" type="MarginContainer" parent="Separator"]
+custom_minimum_size = Vector2(450, 0)
+layout_mode = 2
+
+[node name="CurrentPlayer" type="Label" parent="Separator"]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "1"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Sep" type="Label" parent="Separator"]
+layout_mode = 2
+text = " / "
+
+[node name="TotalPlayer" type="Label" parent="Separator"]
+layout_mode = 2
+text = "4"
+
+[node name="Bottons" type="HBoxContainer" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -92.0
+offset_top = -31.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 8
+
+[node name="DiceName" type="Label" parent="Bottons"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Dice:"
+
+[node name="DiceValue" type="Label" parent="Bottons"]
+layout_mode = 2
+text = "0"
+
+[node name="MarginContainer" type="MarginContainer" parent="Bottons"]
+custom_minimum_size = Vector2(450, 0)
+layout_mode = 2
+
+[node name="Button" type="Button" parent="Bottons"]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Nex Player"
+
+[connection signal="pressed" from="Bottons/Button" to="." method="_on_button_pressed"]

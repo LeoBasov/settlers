@@ -11,3 +11,5 @@ visible = false
 script = ExtResource("1_oak8q")
 
 [node name="Tiles" type="Node2D" parent="."]
+
+[node name="Buildings" type="Node2D" parent="."]

@@ -17,3 +17,6 @@ script = ExtResource("1_0q72n")
 
 [node name="GameCamera2D" parent="." instance=ExtResource("5_gap45")]
 zoom = Vector2(0.7, 0.7)
+
+[connection signal="next" from="UI" to="." method="_on_ui_next"]
+[connection signal="modify_state" from="Board" to="GameState" method="_on_board_modify_state"]
