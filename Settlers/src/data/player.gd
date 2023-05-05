@@ -12,7 +12,7 @@ func reset() -> void:
 	resources.fill(0)
 
 func modify_resource(resource_name: String, value: int) -> void:
-	var key: int = resources[resources_dict.word2num(resource_name)]
+	var key: int = resources_dict.word2num(resource_name)
 	resources[key] += value
 	clamp(resources[key], 0, 99)
 
