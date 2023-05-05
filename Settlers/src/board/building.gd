@@ -1,7 +1,11 @@
 extends Node2D
 
-@onready var build: bool = false
+var build: bool = false
 var owning_palyer: int = 0
+
+func _physics_process(delta: float) -> void:
+	if not build and Input.is_action_just_pressed("left_click") and $BuildingSprite.visible:
+		build = true
 
 func change_player(owning_palyer_: int) -> void:
 	if not build:
@@ -10,8 +14,10 @@ func change_player(owning_palyer_: int) -> void:
 	$BuildingSprite.modulate = get_tree().get_nodes_in_group("players")[owning_palyer].color
 
 func _on_building_area_2d_mouse_entered() -> void:
-	pass # Replace with function body.
+	if not build:
+		$BuildingSprite.show()
 
 
 func _on_building_area_2d_mouse_exited() -> void:
-	pass # Replace with function body.
+	if not build:
+		$BuildingSprite.hide()
