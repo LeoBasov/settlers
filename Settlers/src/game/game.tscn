@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bgvn6awhliuxr"]
+[gd_scene load_steps=6 format=3 uid="uid://bgvn6awhliuxr"]
 
 [ext_resource type="Script" path="res://src/game/game.gd" id="1_0q72n"]
 [ext_resource type="PackedScene" uid="uid://cldh2vxyukpog" path="res://src/data/game_state.tscn" id="1_6e8np"]
 [ext_resource type="PackedScene" uid="uid://de5vi5vl6as7o" path="res://src/ui/ui.tscn" id="2_cyoa1"]
 [ext_resource type="PackedScene" path="res://src/board/board.tscn" id="4_odpqu"]
+[ext_resource type="PackedScene" uid="uid://dt0q3mhf6uye5" path="res://src/camera/game_camera_2d.tscn" id="5_gap45"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_0q72n")
@@ -13,3 +14,5 @@ script = ExtResource("1_0q72n")
 [node name="UI" parent="." instance=ExtResource("2_cyoa1")]
 
 [node name="Board" parent="." instance=ExtResource("4_odpqu")]
+
+[node name="GameCamera2D" parent="." instance=ExtResource("5_gap45")]

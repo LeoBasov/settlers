@@ -37,8 +37,6 @@ func build(n_circle_: int) -> void:
 	create_vertices()
 	create_sides()
 	
-	print(get_child_count())
-	
 	for child in get_cells():
 		var lable = Label.new()
 		lable.text = str(child.r) + ", " + str(child.q)
