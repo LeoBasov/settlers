@@ -21,9 +21,11 @@ func reset() -> void:
 	
 	player_id = 0
 	round_conter = 0
+	
+	_change_player(player_id)
 
 func _change_player(player_id: int) -> void:
-	pass
+	$UI.change_player(player_id, max_player)
 
 func _end_turn() -> void:
 	pass

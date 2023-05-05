@@ -2,6 +2,8 @@ extends CanvasLayer
 
 var resources_dict: = Resources.new()
 var players: = [[], [], [], []]
+var current_player: int = 0
+var may_player_nr: int = 0
 
 signal next
 
@@ -24,3 +26,14 @@ func reset() -> void:
 
 func _on_button_pressed() -> void:
 	next.emit()
+
+func change_player(player: int, may_player_nr_: int) -> void:
+	current_player = player
+	may_player_nr = may_player_nr_
+	$Separator/CurrentPlayer.text = str(current_player + 1)
+	$Separator/TotalPlayer.text = str(may_player_nr)
+
+	if current_player + 1 == may_player_nr:
+		$Buttuns/Button.text = "Next Round"
+	else:
+		$Buttuns/Button.text = "Next Player"
