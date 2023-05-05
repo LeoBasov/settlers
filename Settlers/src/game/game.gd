@@ -29,7 +29,9 @@ func _change_player() -> void:
 	$Board.change_player(player_id)
 
 func _end_turn() -> void:
-	pass
+	randomize()
+	var dice: int = randi_range(1, 6) + randi_range(1, 6)
+	$UI.set_dice(dice)
 
 func _on_ui_next() -> void:
 	if player_id < (max_player - 1):

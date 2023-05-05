@@ -7,6 +7,9 @@ var may_player_nr: int = 0
 
 signal next
 
+func set_dice(value: int) -> void:
+	$Bottons/DiceValue.text = str(value)
+
 func _ready() -> void:
 	for i in range($Separator/PlayerBanner.get_child_count()):
 		players[i].resize(resources_dict.size())
@@ -19,6 +22,8 @@ func _ready() -> void:
 	reset()
 
 func reset() -> void:
+	set_dice(0)
+	
 	for player in players:
 		for txt in player:
 			txt = str(0)
@@ -34,6 +39,6 @@ func change_player(player: int, may_player_nr_: int) -> void:
 	$Separator/TotalPlayer.text = str(may_player_nr)
 
 	if current_player + 1 == may_player_nr:
-		$Buttuns/Button.text = "Next Round"
+		$Bottons/Button.text = "Next Round"
 	else:
-		$Buttuns/Button.text = "Next Player"
+		$Bottons/Button.text = "Next Player"
