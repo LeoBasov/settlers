@@ -8,9 +8,32 @@ func _ready() -> void:
 	randomize_board()
 
 func randomize_board() -> void:
+	var tiles: Array[int] = set_up_rand_tiles({"wood": 4, "wool": 4, "hey": 4, "clay": 3, "stone": 3})
+	var coins: Array[int] = [2, 3, 3, 4, 4, 5, 5, 6, 6, 8, 8, 9, 9, 10, 10, 11, 11, 12]
+	var j: int  = 0
+	
+	randomize()
+	coins.shuffle()
+	
+	for i in range(len($HexGrid.get_cells())):
+		var cell = $HexGrid.get_cells()[i]
+		var tile: = Tile.instantiate()
+		tile.set_type(tiles[i])
+		tile.position = cell.position
+		if tiles[i] != 5:
+			tile.set_coin(coins[j])
+			j += 1
+		$Tiles.add_child(tile)
+
+func set_up_rand_tiles(dict: Dictionary) -> Array[int]:
 	var tiles: Array[int] = []
 	
-	for cell in $HexGrid.get_cells():
-		var tile: = Tile.instantiate()
-		tile.position = cell.position
-		$Tiles.add_child(tile)
+	for key in dict.keys():
+		for i in range(dict[key]):
+			tiles.append(recources_dict.word2num(key))
+			
+	tiles.append(5)
+	randomize()
+	tiles.shuffle()
+	
+	return tiles
