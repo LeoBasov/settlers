@@ -7,3 +7,6 @@ func word2num(res: String) -> int:
 
 func num2word(num: int) -> String:
 	return resources_dict.find_key(num)
+
+func size() -> int:
+	return resources_dict.size()
