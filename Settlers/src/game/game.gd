@@ -26,6 +26,7 @@ func reset() -> void:
 
 func _change_player(player_id: int) -> void:
 	$UI.change_player(player_id, max_player)
+	$Board.change_player(player_id)
 
 func _end_turn() -> void:
 	pass

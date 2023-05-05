@@ -2,6 +2,7 @@ extends Node2D
 
 var Tile: = preload("res://src/board/tile.tscn")
 var recources_dict: = Resources.new()
+var current_player: int = 0
 
 func _ready() -> void:
 	$HexGrid.build(2)
@@ -37,3 +38,6 @@ func set_up_rand_tiles(dict: Dictionary) -> Array[int]:
 	tiles.shuffle()
 	
 	return tiles
+
+func change_player(current_palyer_: int) -> void:
+	current_player = current_palyer_
