@@ -6,17 +6,20 @@ var recources_dict: = Resources.new()
 var current_player: int = 0
 
 signal modify_state(player_id: int, recourse: String, value: int)
+signal update_ui
 
 func _ready() -> void:
 	$HexGrid.build(2)
 	set_up_buildings()
 	randomize_board()
 	
-func get_score(dice: int) -> void:
+func get_score(dice: int, first_round: bool, pre_round: bool) -> void:
+	if pre_round:
+		return
 	for building in $Buildings.get_children():
 		if building.build:
 			for tile in building.tiles:
-				if tile.coin_nr == dice:
+				if tile.coin_nr > 0 and (first_round or tile.coin_nr == dice):
 					modify_state.emit(building.owning_palyer, tile.get_type(), 1)
 
 func randomize_board() -> void:
@@ -47,6 +50,7 @@ func set_up_buildings() -> void:
 	for vertex in $HexGrid.get_vertices():
 		var building: = Building.instantiate()
 		building.position = vertex.position
+		building.update_ui.connect(_on_update_ui)
 		$Buildings.add_child(building)
 
 func set_up_rand_tiles(dict: Dictionary) -> Array[int]:
@@ -67,3 +71,6 @@ func change_player(current_palyer_: int) -> void:
 
 	for building in $Buildings.get_children():
 		building.change_player(current_player)
+
+func _on_update_ui() -> void:
+	update_ui.emit()

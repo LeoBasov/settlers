@@ -1,6 +1,8 @@
 extends Node
 
 @export var color: Color = Color.RED
+@export var free_settlement: int = 2
+
 var resources_dict: = Resources.new()
 var resources: Array = []
 
@@ -20,3 +22,7 @@ func modify_resources(resources_names: Array[String], values: Array[int]) -> voi
 	assert(resources_names.size() == values.size())
 	for i in range(len(resources_names)):
 		modify_resource(resources_names[i], values[i])
+
+func modify_resources_dict(resource_dict: Dictionary) -> void:
+	for key in resource_dict.keys():
+		modify_resource(key, -resource_dict[key])

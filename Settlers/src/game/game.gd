@@ -12,9 +12,9 @@ func _ready() -> void:
 	$GameCamera2D.position = get_viewport().get_visible_rect().size * 0.5
 	reset()
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if Input.is_action_just_pressed("reset"):
-		reset()
+		get_tree().reload_current_scene()
 
 func reset() -> void:
 	$GameState.reset()
@@ -34,8 +34,13 @@ func _end_turn() -> void:
 	randomize()
 	var dice: int = randi_range(1, 6) + randi_range(1, 6)
 	$UI.set_dice(dice)
-	$Board.get_score(dice)
+	$Board.get_score(dice, $GameState.first_round, $GameState.pre_round)
 	$UI.update()
+	
+	if $GameState.pre_round:
+		$GameState.pre_round = false
+	else:
+		$GameState.first_round = false
 
 func _on_ui_next() -> void:
 	if player_id < (max_player - 1):
@@ -45,3 +50,8 @@ func _on_ui_next() -> void:
 		player_id = 0
 		_change_player()
 		_end_turn()
+
+
+func _on_board_update_ui() -> void:
+	$UI.update()
+	_on_ui_next()

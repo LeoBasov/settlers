@@ -20,3 +20,4 @@ zoom = Vector2(0.7, 0.7)
 
 [connection signal="next" from="UI" to="." method="_on_ui_next"]
 [connection signal="modify_state" from="Board" to="GameState" method="_on_board_modify_state"]
+[connection signal="update_ui" from="Board" to="." method="_on_board_update_ui"]
