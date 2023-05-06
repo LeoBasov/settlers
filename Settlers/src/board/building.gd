@@ -12,7 +12,7 @@ var resources_dict: = Resources.new()
 
 signal update_ui
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if check_cost() and not build and Input.is_action_just_pressed("left_click") and $BuildingSprite.visible:
 		build = true
 		pay()
