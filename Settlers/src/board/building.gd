@@ -21,6 +21,8 @@ func _physics_process(_delta: float) -> void:
 		for tile in get_tree().get_nodes_in_group("tiles"):
 			if (tile.position - position).length() < dist:
 				tiles.append(tile)
+				
+		update_ui.emit()
 
 func change_player(owning_palyer_: int) -> void:
 	if not build:
@@ -63,5 +65,3 @@ func pay() -> void:
 		player.free_settlement -= 1
 	else:
 		player.modify_resources_dict(settlement_cost)
-		
-	update_ui.emit()
