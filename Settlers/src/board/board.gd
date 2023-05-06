@@ -6,6 +6,7 @@ var recources_dict: = Resources.new()
 var current_player: int = 0
 
 signal modify_state(player_id: int, recourse: String, value: int)
+signal update_ui
 
 func _ready() -> void:
 	$HexGrid.build(2)
@@ -47,6 +48,7 @@ func set_up_buildings() -> void:
 	for vertex in $HexGrid.get_vertices():
 		var building: = Building.instantiate()
 		building.position = vertex.position
+		building.update_ui.connect(_on_update_ui)
 		$Buildings.add_child(building)
 
 func set_up_rand_tiles(dict: Dictionary) -> Array[int]:
@@ -67,3 +69,6 @@ func change_player(current_palyer_: int) -> void:
 
 	for building in $Buildings.get_children():
 		building.change_player(current_player)
+
+func _on_update_ui() -> void:
+	update_ui.emit()

@@ -10,6 +10,8 @@ extends Node2D
 
 var resources_dict: = Resources.new()
 
+signal update_ui
+
 func _physics_process(delta: float) -> void:
 	if check_cost() and not build and Input.is_action_just_pressed("left_click") and $BuildingSprite.visible:
 		build = true
@@ -61,3 +63,5 @@ func pay() -> void:
 		player.free_settlement -= 1
 	else:
 		player.modify_resources_dict(settlement_cost)
+		
+	update_ui.emit()

@@ -14,7 +14,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("reset"):
-		reset()
+		get_tree().reload_current_scene()
 
 func reset() -> void:
 	$GameState.reset()
@@ -45,3 +45,7 @@ func _on_ui_next() -> void:
 		player_id = 0
 		_change_player()
 		_end_turn()
+
+
+func _on_board_update_ui() -> void:
+	$UI.update()

@@ -25,4 +25,4 @@ func modify_resources(resources_names: Array[String], values: Array[int]) -> voi
 
 func modify_resources_dict(resources_dict: Dictionary) -> void:
 	for key in resources_dict.keys():
-		modify_resource(key, resources_dict[key])
+		modify_resource(key, -resources_dict[key])
