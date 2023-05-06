@@ -1,9 +1,23 @@
-[gd_scene load_steps=2 format=3 uid="uid://dc5tkux42rjvx"]
+[gd_scene load_steps=4 format=3 uid="uid://dc5tkux42rjvx"]
 
 [ext_resource type="Texture2D" uid="uid://rivy6lkvf7lq" path="res://assets/Road.png" id="1_2d58k"]
+[ext_resource type="Script" path="res://src/board/road.gd" id="1_wcf0m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w0qpq"]
+size = Vector2(20, 40)
 
 [node name="Road" type="Node2D"]
+script = ExtResource("1_wcf0m")
 
 [node name="RoadSprite2D" type="Sprite2D" parent="."]
+visible = false
 scale = Vector2(5, 5)
 texture = ExtResource("1_2d58k")
+
+[node name="RoadArea2D" type="Area2D" parent="."]
+
+[node name="RoadCollisionShape2D" type="CollisionShape2D" parent="RoadArea2D"]
+shape = SubResource("RectangleShape2D_w0qpq")
+
+[connection signal="mouse_entered" from="RoadArea2D" to="." method="_on_road_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="RoadArea2D" to="." method="_on_road_area_2d_mouse_exited"]
