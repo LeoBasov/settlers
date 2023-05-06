@@ -20,3 +20,7 @@ func modify_resources(resources_names: Array[String], values: Array[int]) -> voi
 	assert(resources_names.size() == values.size())
 	for i in range(len(resources_names)):
 		modify_resource(resources_names[i], values[i])
+
+func modify_resources_dict(resources_dict: Dictionary) -> void:
+	for key in resources_dict.keys():
+		modify_resource(key, resources_dict[key])
