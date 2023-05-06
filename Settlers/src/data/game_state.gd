@@ -1,6 +1,7 @@
 extends Node
 
 var first_round: bool = true
+var pre_round: bool = true
 
 func _ready() -> void:
 	reset()

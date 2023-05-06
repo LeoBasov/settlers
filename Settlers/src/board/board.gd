@@ -13,7 +13,9 @@ func _ready() -> void:
 	set_up_buildings()
 	randomize_board()
 	
-func get_score(dice: int, first_round: bool) -> void:
+func get_score(dice: int, first_round: bool, pre_round: bool) -> void:
+	if pre_round:
+		return
 	for building in $Buildings.get_children():
 		if building.build:
 			for tile in building.tiles:
