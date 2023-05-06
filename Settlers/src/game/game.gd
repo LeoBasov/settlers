@@ -50,3 +50,4 @@ func _on_ui_next() -> void:
 
 func _on_board_update_ui() -> void:
 	$UI.update()
+	_on_ui_next()

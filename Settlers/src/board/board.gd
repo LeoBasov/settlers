@@ -17,7 +17,7 @@ func get_score(dice: int, first_round: bool) -> void:
 	for building in $Buildings.get_children():
 		if building.build:
 			for tile in building.tiles:
-				if first_round or tile.coin_nr == dice:
+				if tile.coin_nr > 0 and (first_round or tile.coin_nr == dice):
 					modify_state.emit(building.owning_palyer, tile.get_type(), 1)
 
 func randomize_board() -> void:
