@@ -7,6 +7,13 @@
 
 [node name="Building" type="Node2D" groups=["buildings"]]
 script = ExtResource("1_s4jl6")
+settlement_cost = {
+"clay": 1,
+"hey": 1,
+"stone": 0,
+"wood": 1,
+"wool": 1
+}
 
 [node name="BuildingSprite" type="Sprite2D" parent="."]
 visible = false
