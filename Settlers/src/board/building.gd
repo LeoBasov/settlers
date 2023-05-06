@@ -1,6 +1,7 @@
 extends Node2D
 
 @export var dist: float  = 110.0
+@export var settlement_cost: = {"wood": 0, "wool": 0, "hey": 0, "clay": 0, "stone": 0}
 
 @onready var availible: bool = true
 @onready var build: bool = false
