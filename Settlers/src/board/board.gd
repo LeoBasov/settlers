@@ -84,6 +84,7 @@ func change_player(current_palyer_: int) -> void:
 	
 	get_tree().call_group("buildings", "change_player", current_player)
 	get_tree().call_group("roads", "change_player", current_player)
+	get_tree().call_group("roads", "check_neighbours")
 
 func _on_update_ui() -> void:
 	update_ui.emit()

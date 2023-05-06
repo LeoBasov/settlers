@@ -3,10 +3,17 @@ extends Node2D
 @export var dist: float  = 110.0
 @export var cost: = {"wood": 0, "wool": 0, "hey": 0, "clay": 0, "stone": 0}
 
-@onready var availible: bool = true
+@onready var availible: bool = false
 @onready var build: bool = false
 @onready var owning_palyer: int = 0
 @onready var tiles: Array = []
+
+func check_neighbours() -> void:
+	if not build:
+		for building in get_tree().get_nodes_in_group("buildings"):
+			if building.build and (building.owning_palyer == owning_palyer) and (building.position - position).length() < dist:
+				availible = true
+				return
 
 func change_player(owning_palyer_: int) -> void:
 	if not build:
