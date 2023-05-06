@@ -81,9 +81,9 @@ func set_up_rand_tiles(dict: Dictionary) -> Array[int]:
 
 func change_player(current_palyer_: int) -> void:
 	current_player = current_palyer_
-
-	for building in $Buildings.get_children():
-		building.change_player(current_player)
+	
+	get_tree().call_group("buildings", "change_player", current_player)
+	get_tree().call_group("roads", "change_player", current_player)
 
 func _on_update_ui() -> void:
 	update_ui.emit()
