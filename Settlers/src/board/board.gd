@@ -63,7 +63,7 @@ func set_up_roads() -> void:
 		var road: = Road.instantiate()
 		road.position = side.position
 		road.rotate(side.rotation)
-		#building.update_ui.connect(_on_update_ui)
+		road.update_ui.connect(_on_update_ui)
 		$Roads.add_child(road)
 
 func set_up_rand_tiles(dict: Dictionary) -> Array[int]:

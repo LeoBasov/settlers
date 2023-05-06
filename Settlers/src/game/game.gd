@@ -30,7 +30,7 @@ func _change_player() -> void:
 	$UI.change_player(player_id, max_player)
 	$Board.change_player(player_id)
 
-func _end_turn() -> void:
+func _end_turn() -> void:	
 	randomize()
 	var dice: int = randi_range(1, 6) + randi_range(1, 6)
 	$UI.set_dice(dice)

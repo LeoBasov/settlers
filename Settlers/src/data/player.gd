@@ -1,7 +1,7 @@
 extends Node
 
 @export var color: Color = Color.RED
-@export var free_settlement: int = 2
+@export var free_settlement: int = 4
 
 var resources_dict: = Resources.new()
 var resources: Array = []

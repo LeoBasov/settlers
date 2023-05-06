@@ -8,6 +8,13 @@ size = Vector2(20, 40)
 
 [node name="Road" type="Node2D" groups=["roads"]]
 script = ExtResource("1_wcf0m")
+cost = {
+"clay": 1,
+"hey": 0,
+"stone": 0,
+"wood": 1,
+"wool": 0
+}
 
 [node name="RoadSprite2D" type="Sprite2D" parent="."]
 visible = false
