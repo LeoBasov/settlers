@@ -13,6 +13,9 @@ func set_dice(value: int) -> void:
 	$Bottons/DiceValue.text = str(value)
 	
 func update():
+	for i in range(may_player_nr, len(players)):
+		$Separator/PlayerBanner.get_child(i).hide()
+	
 	for i in range(len(players)):
 		for r in range(len(players[i])):
 			players[i][r].text = str(game_state.get_child(0).get_child(i).resources[r])
