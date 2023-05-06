@@ -34,8 +34,9 @@ func _end_turn() -> void:
 	randomize()
 	var dice: int = randi_range(1, 6) + randi_range(1, 6)
 	$UI.set_dice(dice)
-	$Board.get_score(dice)
+	$Board.get_score(dice, $GameState.first_round)
 	$UI.update()
+	$GameState.first_round = false
 
 func _on_ui_next() -> void:
 	if player_id < (max_player - 1):
