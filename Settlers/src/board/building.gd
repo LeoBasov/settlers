@@ -13,7 +13,7 @@ var resources_dict: = Resources.new()
 func _physics_process(delta: float) -> void:
 	if check_cost() and not build and Input.is_action_just_pressed("left_click") and $BuildingSprite.visible:
 		build = true
-		get_tree().get_nodes_in_group("players")[owning_palyer].modify_resources_dict(settlement_cost)
+		pay()
 		get_tree().call_group("buildings", "check_neighbours", position)
 		
 		for tile in get_tree().get_nodes_in_group("tiles"):
@@ -41,11 +41,23 @@ func check_neighbours(pos: Vector2) -> void:
 			availible = false
 
 func check_cost() -> bool:
-	var plr_res = get_tree().get_nodes_in_group("players")[owning_palyer].resources
+	var player = get_tree().get_nodes_in_group("players")[owning_palyer]
+	var plr_res = player.resources
 	var valid: bool = true
 	
+	if player.free_settlement > 0:
+		return true
+		
 	for key in settlement_cost.keys():
 		var id: int = resources_dict.word2num(key)
 		valid =  valid and (plr_res[id] >= settlement_cost[key])
 
 	return valid
+
+func pay() -> void:
+	var player = get_tree().get_nodes_in_group("players")[owning_palyer]
+	
+	if player.free_settlement > 0:
+		player.free_settlement -= 1
+	else:
+		player.modify_resources_dict(settlement_cost)
