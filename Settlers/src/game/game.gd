@@ -30,16 +30,14 @@ func _change_player() -> void:
 	$UI.change_player(player_id, max_player)
 	$Board.change_player(player_id)
 
-func _end_turn() -> void:
+func _end_turn() -> void:	
 	randomize()
 	var dice: int = randi_range(1, 6) + randi_range(1, 6)
 	$UI.set_dice(dice)
-	$Board.get_score(dice, $GameState.first_round, $GameState.pre_round)
+	$Board.get_score(dice, $GameState.first_round, $GameState.is_pre_round(max_player))
 	$UI.update()
-	
-	if $GameState.pre_round:
-		$GameState.pre_round = false
-	else:
+
+	if $GameState.first_round and not $GameState.is_pre_round(max_player):
 		$GameState.first_round = false
 
 func _on_ui_next() -> void:

@@ -1,0 +1,47 @@
+[gd_scene load_steps=3 format=3 uid="uid://bcw53ow2ub3fh"]
+
+[ext_resource type="PackedScene" uid="uid://bgvn6awhliuxr" path="res://src/game/game.tscn" id="1_bbr23"]
+[ext_resource type="Script" path="res://src/menus/main_menu.gd" id="1_ex3cd"]
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_ex3cd")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -72.0
+offset_top = -15.5
+offset_right = 72.0
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+
+[node name="Button1Player" type="Button" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+text = "1 Player"
+
+[node name="Button2Player" type="Button" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+text = "2 Player"
+
+[node name="Button3Player" type="Button" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+text = "3 Player"
+
+[node name="Button4Players" type="Button" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+text = "4 Player"
+
+[node name="Game" parent="." instance=ExtResource("1_bbr23")]
+visible = false
+
+[connection signal="pressed" from="CanvasLayer/HBoxContainer/Button1Player" to="." method="_on_button_1_player_pressed"]
+[connection signal="pressed" from="CanvasLayer/HBoxContainer/Button2Player" to="." method="_on_button_2_player_pressed"]
+[connection signal="pressed" from="CanvasLayer/HBoxContainer/Button3Player" to="." method="_on_button_3_player_pressed"]
+[connection signal="pressed" from="CanvasLayer/HBoxContainer/Button4Players" to="." method="_on_button_4_players_pressed"]

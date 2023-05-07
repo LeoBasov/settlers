@@ -2,6 +2,7 @@ extends Node2D
 
 var Tile: = preload("res://src/board/tile.tscn")
 var Building: = preload("res://src/board/building.tscn")
+var Road: = preload("res://src/board/road.tscn")
 var recources_dict: = Resources.new()
 var current_player: int = 0
 
@@ -11,6 +12,7 @@ signal update_ui
 func _ready() -> void:
 	$HexGrid.build(2)
 	set_up_buildings()
+	set_up_roads()
 	randomize_board()
 	
 func get_score(dice: int, first_round: bool, pre_round: bool) -> void:
@@ -52,6 +54,17 @@ func set_up_buildings() -> void:
 		building.position = vertex.position
 		building.update_ui.connect(_on_update_ui)
 		$Buildings.add_child(building)
+		
+func set_up_roads() -> void:
+	for child in $Roads.get_children():
+		child.queue_free()
+		
+	for side in $HexGrid.get_sides():
+		var road: = Road.instantiate()
+		road.position = side.position
+		road.rotate(side.rotation)
+		road.update_ui.connect(_on_update_ui)
+		$Roads.add_child(road)
 
 func set_up_rand_tiles(dict: Dictionary) -> Array[int]:
 	var tiles: Array[int] = []
@@ -68,9 +81,10 @@ func set_up_rand_tiles(dict: Dictionary) -> Array[int]:
 
 func change_player(current_palyer_: int) -> void:
 	current_player = current_palyer_
-
-	for building in $Buildings.get_children():
-		building.change_player(current_player)
+	
+	get_tree().call_group("buildings", "change_player", current_player)
+	get_tree().call_group("roads", "change_player", current_player)
+	get_tree().call_group("roads", "check_neighbours")
 
 func _on_update_ui() -> void:
 	update_ui.emit()

@@ -1,7 +1,15 @@
 extends Node
 
 var first_round: bool = true
-var pre_round: bool = true
+
+func is_pre_round(max_players: int) -> bool:
+	var pre_round: bool = false
+	
+	for i in range(max_players):
+		var player =  $Players.get_child(i)
+		pre_round =  pre_round or (player.free_settlement > 0) or (player.free_roads > 0) 
+	
+	return pre_round
 
 func _ready() -> void:
 	reset()
