@@ -45,7 +45,7 @@ func check_cost() -> bool:
 	var plr_res = player.resources
 	var valid: bool = true
 	
-	if player.free_settlement > 0:
+	if player.free_roads > 0:
 		return true
 		
 	for key in cost.keys():
@@ -57,7 +57,7 @@ func check_cost() -> bool:
 func pay() -> void:
 	var player = get_tree().get_nodes_in_group("players")[owning_palyer]
 	
-	if player.free_settlement > 0:
-		player.free_settlement -= 1
+	if player.free_roads > 0:
+		player.free_roads -= 1
 	else:
 		player.modify_resources_dict(cost)
