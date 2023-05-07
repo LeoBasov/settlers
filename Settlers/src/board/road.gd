@@ -25,6 +25,8 @@ func check_neighbours() -> void:
 				availible = true
 				return
 
+		availible = false
+
 func change_player(owning_palyer_: int) -> void:
 	if not build:
 		owning_palyer = owning_palyer_
