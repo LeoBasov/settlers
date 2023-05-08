@@ -24,6 +24,11 @@ func check_neighbours() -> void:
 			if building.build and (building.owning_palyer == owning_palyer) and (building.position - position).length() < dist*0.5:
 				availible = true
 				return
+				
+		for road in get_tree().get_nodes_in_group("roads"):
+			if road.build and (road.owning_palyer == owning_palyer) and (road != self) and (road.position - position).length() < dist:
+				availible = true
+				return
 
 		availible = false
 
