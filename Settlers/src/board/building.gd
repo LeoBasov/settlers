@@ -27,6 +27,11 @@ func _physics_process(_delta: float) -> void:
 				tiles.append(tile)
 				
 		update_ui.emit()
+	elif Input.is_action_just_pressed("left_click") and is_settlement and check_cost() and $CitySprite2D.visible:
+		is_settlement = false
+		is_city = true
+		pay()
+		update_ui.emit()
 
 func change_player(owning_palyer_: int) -> void:
 	if not build:
@@ -60,12 +65,15 @@ func check_cost() -> bool:
 	var plr_res = player.resources
 	var valid: bool = true
 	
-	if player.free_settlement > 0:
+	if not is_settlement and player.free_settlement > 0:
 		return true
 		
 	for key in settlement_cost.keys():
 		var id: int = resources_dict.word2num(key)
-		valid =  valid and (plr_res[id] >= settlement_cost[key])
+		if not is_settlement:
+			valid =  valid and (plr_res[id] >= settlement_cost[key])
+		else:
+			valid =  valid and (plr_res[id] >= city_cost[key])
 
 	return valid
 
@@ -74,5 +82,7 @@ func pay() -> void:
 	
 	if player.free_settlement > 0:
 		player.free_settlement -= 1
-	else:
+	elif not is_settlement and not  is_city:
 		player.modify_resources_dict(settlement_cost)
+	else:
+		player.modify_resources_dict(city_cost)
