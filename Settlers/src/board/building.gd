@@ -13,7 +13,7 @@ var resources_dict: = Resources.new()
 signal update_ui
 
 func _physics_process(_delta: float) -> void:
-	if check_cost() and not build and Input.is_action_just_pressed("left_click") and $BuildingSprite.visible:
+	if check_cost() and not build and Input.is_action_just_pressed("left_click") and $SettlementSprite.visible:
 		build = true
 		pay()
 		get_tree().call_group("buildings", "check_neighbours", position)
@@ -28,16 +28,16 @@ func change_player(owning_palyer_: int) -> void:
 	if not build:
 		owning_palyer = owning_palyer_
 		
-	$BuildingSprite.modulate = get_tree().get_nodes_in_group("players")[owning_palyer].color
+	$SettlementSprite.modulate = get_tree().get_nodes_in_group("players")[owning_palyer].color
 
 func _on_building_area_2d_mouse_entered() -> void:
 	if not build and availible:
-		$BuildingSprite.show()
+		$SettlementSprite.show()
 
 
 func _on_building_area_2d_mouse_exited() -> void:
 	if not build:
-		$BuildingSprite.hide()
+		$SettlementSprite.hide()
 
 func check_neighbours(pos: Vector2) -> void:
 	if not build and availible:
