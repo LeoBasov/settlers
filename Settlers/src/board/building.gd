@@ -66,3 +66,9 @@ func pay() -> void:
 		player.free_settlement -= 1
 	else:
 		player.modify_resources_dict(settlement_cost)
+
+func is_settlement() -> bool:
+	return build and $SettlementSprite.visible
+
+func is_city() -> bool:
+	return false
