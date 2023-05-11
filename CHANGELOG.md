@@ -7,10 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-- upgrading settlements to towns
 - harbours
 - robber
 - upgrade cards
 - trading
 - victory condition
 - online multiplayer
+
+## [0.1.0] - 2023-05-11_1
+
+### Added
+
+- upgrading settlements to towns
+
+### Fixed
+
+- payment on end of turn no working
