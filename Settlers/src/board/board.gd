@@ -22,7 +22,10 @@ func get_score(dice: int, first_round: bool, pre_round: bool) -> void:
 		if building.build:
 			for tile in building.tiles:
 				if tile.coin_nr > 0 and (first_round or tile.coin_nr == dice):
-					modify_state.emit(building.owning_palyer, tile.get_type(), 1)
+					if building.is_settlement:
+						modify_state.emit(building.owning_palyer, tile.get_type(), 1)
+					elif building.is_city:
+						modify_state.emit(building.owning_palyer, tile.get_type(), 2)
 
 func randomize_board() -> void:
 	for child in $Tiles.get_children():

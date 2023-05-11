@@ -47,8 +47,3 @@ func change_player(player: int, may_player_nr_: int) -> void:
 	may_player_nr = may_player_nr_
 	$Separator/CurrentPlayer.text = str(current_player + 1)
 	$Separator/TotalPlayer.text = str(may_player_nr)
-
-	if current_player + 1 == may_player_nr:
-		$Bottons/Button.text = "Next Round"
-	else:
-		$Bottons/Button.text = "Next Player"
