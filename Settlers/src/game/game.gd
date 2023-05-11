@@ -43,11 +43,11 @@ func _end_turn() -> void:
 func _on_ui_next() -> void:
 	if player_id < (max_player - 1):
 		player_id += 1
-		_change_player()
 	else:
 		player_id = 0
-		_change_player()
-		_end_turn()
+	
+	_change_player()
+	_end_turn()
 
 
 func _on_board_update_ui() -> void:
