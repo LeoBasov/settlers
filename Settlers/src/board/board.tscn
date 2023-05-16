@@ -15,3 +15,5 @@ script = ExtResource("1_oak8q")
 [node name="Roads" type="Node2D" parent="."]
 
 [node name="Buildings" type="Node2D" parent="."]
+
+[node name="Robbers" type="Node2D" parent="."]

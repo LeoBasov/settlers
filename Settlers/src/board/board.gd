@@ -3,6 +3,7 @@ extends Node2D
 var Tile: = preload("res://src/board/tile.tscn")
 var Building: = preload("res://src/board/building.tscn")
 var Road: = preload("res://src/board/road.tscn")
+var Robber: = preload("res://src/board/robber.tscn")
 var recources_dict: = Resources.new()
 var current_player: int = 0
 
@@ -13,6 +14,7 @@ func _ready() -> void:
 	$HexGrid.build(2)
 	set_up_buildings()
 	set_up_roads()
+	set_up_robbers()
 	randomize_board()
 	
 func get_score(dice: int, first_round: bool, pre_round: bool) -> void:
@@ -68,6 +70,15 @@ func set_up_roads() -> void:
 		road.rotate(side.rotation)
 		road.update_ui.connect(_on_update_ui)
 		$Roads.add_child(road)
+		
+func set_up_robbers() -> void:
+	for child in $Robbers.get_children():
+		child.queue_free()
+		
+	for cell in $HexGrid.get_cells():
+		var robber: = Robber.instantiate()
+		robber.position = cell.position
+		$Robbers.add_child(robber)
 
 func set_up_rand_tiles(dict: Dictionary) -> Array[int]:
 	var tiles: Array[int] = []
