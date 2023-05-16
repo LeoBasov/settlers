@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c37iqecxy306w"]
+
+[ext_resource type="Texture2D" uid="uid://b2vwq1g47v57j" path="res://assets/Robber.png" id="1_x6ja1"]
+
+[node name="Robber" type="Node2D"]
+
+[node name="RobberSprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_x6ja1")
